@@ -1,0 +1,38 @@
+{
+    "name":"JSONToRC",
+    "version":"0.0.0",
+    "author":"",
+    "location":"elpete/JSONToRC#v0.0.0",
+    "homepage":"https://github.com/elpete/JSONToRC",
+    "documentation":"https://github.com/elpete/JSONToRC",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/elpete/JSONToRC"
+    },
+    "bugs":"https://github.com/elpete/JSONToRC/issues",
+    "slug":"JSONToRC",
+    "shortDescription":"",
+    "description":"",
+    "type":"modules",
+    "dependencies":{
+        
+    },
+    "devDependencies":{
+        "coldbox":"^4.3.0+188",
+        "testbox":"^2.4.0+80"
+    },
+    "installPaths":{
+        "testbox":"testbox",
+        "coldbox":"tests/resources/app/coldbox"
+    },
+    "scripts":{
+        "postVersion":"package set location='elpete/JSONToRC#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push && !git push --tags"
+    },
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests"
+    ]
+}
