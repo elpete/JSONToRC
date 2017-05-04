@@ -10,14 +10,8 @@ component {
     function preProcess( event, interceptData, buffer, rc, prc ) {
         var jsonContent = event.getHTTPContent( json = true );
 
-        if ( isArray( jsonContent ) ) {
-            throw( "Only struct values are able to be converted. Please attach your array [#serializeJson( jsonContent )#] to a key in a struct." );
+        if ( isStruct( jsonContent ) ) {
+            structAppend( rc, jsonContent );
         }
-
-        if ( isSimpleValue( jsonContent ) ) {
-            throw( "Only struct values are able to be converted. Please attach your simple value [#jsonContent#] to a key in a struct." );
-        }
-
-        rc.append( jsonContent );
     }
 }

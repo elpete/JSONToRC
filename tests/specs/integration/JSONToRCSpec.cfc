@@ -20,34 +20,6 @@ component extends="tests.resources.ModuleIntegrationSpec" appMapping="/app" {
                 expect( rc ).toHaveKey( "age" );
                 expect( rc.age ).toBe( 21 );
             } );
-
-            describe( "helpful error messages", function() {
-                it( "provides a helpful error message when just a simple value is passed as the request body", function() {
-                    var json = "foo";
-
-                    prepareMock( getRequestContext() )
-                        .$( "getHTTPContent" )
-                        .$args( json = true )
-                        .$results( json );
-
-                    expect( function() {
-                        execute( event = "Main.index", renderResults = true );
-                    } ).toThrow( regex = "Only struct values are able to be converted\. Please attach your simple value \[foo\] to a key in a struct." );
-                } );
-
-                it( "provides a helpful error message when just an array is passed as the request body", function() {
-                    var json = [ "foo", "bar" ];
-
-                    prepareMock( getRequestContext() )
-                        .$( "getHTTPContent" )
-                        .$args( json = true )
-                        .$results( json );
-
-                    expect( function() {
-                        execute( event = "Main.index", renderResults = true );
-                    } ).toThrow( regex = "Only struct values are able to be converted\. Please attach your array \[\[\""foo\"",\""bar\""\]\] to a key in a struct." );
-                } );
-            } );
         } );
     }
 }
